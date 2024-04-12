@@ -201,261 +201,261 @@ date: 2024/04/07
         yen@yenubuntu:~/lex$ 
         ```
     * test data of TA:
-    ```=
-    yen@yenubuntu:~/lex$ ./exec.sh 
-    | test1.pas |
-    program test;
-    var
-      i : integer;
-    begin
-      read(i);
-    end;
+      ```=
+      yen@yenubuntu:~/lex$ ./exec.sh 
+      | test1.pas |
+      program test;
+      var
+        i : integer;
+      begin
+        read(i);
+      end;
 
-    Line: 1, 1st char: 1, "program" is a "reserved"
-    Line: 1, 1st char: 9, "test" is an "id"
-    Line: 1, 1st char: 13, ";" is a "symbol"
-    Line: 2, 1st char: 1, "var" is a "reserved"
-    Line: 3, 1st char: 3, "i" is an "id"
-    Line: 3, 1st char: 5, ":" is a "symbol"
-    Line: 3, 1st char: 7, "integer" is a "reserved"
-    Line: 3, 1st char: 14, ";" is a "symbol"
-    Line: 4, 1st char: 1, "begin" is a "reserved"
-    Line: 5, 1st char: 3, "read" is a "reserved"
-    Line: 5, 1st char: 7, "(" is a "symbol"
-    Line: 5, 1st char: 8, "i" is an "id"
-    Line: 5, 1st char: 9, ")" is a "symbol"
-    Line: 5, 1st char: 10, ";" is a "symbol"
-    Line: 6, 1st char: 1, "end" is a "reserved"
-    Line: 6, 1st char: 4, ";" is a "symbol"
+      Line: 1, 1st char: 1, "program" is a "reserved"
+      Line: 1, 1st char: 9, "test" is an "id"
+      Line: 1, 1st char: 13, ";" is a "symbol"
+      Line: 2, 1st char: 1, "var" is a "reserved"
+      Line: 3, 1st char: 3, "i" is an "id"
+      Line: 3, 1st char: 5, ":" is a "symbol"
+      Line: 3, 1st char: 7, "integer" is a "reserved"
+      Line: 3, 1st char: 14, ";" is a "symbol"
+      Line: 4, 1st char: 1, "begin" is a "reserved"
+      Line: 5, 1st char: 3, "read" is a "reserved"
+      Line: 5, 1st char: 7, "(" is a "symbol"
+      Line: 5, 1st char: 8, "i" is an "id"
+      Line: 5, 1st char: 9, ")" is a "symbol"
+      Line: 5, 1st char: 10, ";" is a "symbol"
+      Line: 6, 1st char: 1, "end" is a "reserved"
+      Line: 6, 1st char: 4, ";" is a "symbol"
 
-    The symbol table contains:
-    test
-    i
-    ------------------------
-    | test2.pas |
-    program test;
-    var
-      3i : string;
-    begin
-      3i := 'ab;
-    end;
+      The symbol table contains:
+      test
+      i
+      ------------------------
+      | test2.pas |
+      program test;
+      var
+        3i : string;
+      begin
+        3i := 'ab;
+      end;
 
-    Line: 1, 1st char: 1, "program" is a "reserved"
-    Line: 1, 1st char: 9, "test" is an "id"
-    Line: 1, 1st char: 13, ";" is a "symbol"
-    Line: 2, 1st char: 1, "var" is a "reserved"
-    Line: 3, 1st char: 3, "3i" is an "invalid id"
-    Line: 3, 1st char: 6, ":" is a "symbol"
-    Line: 3, 1st char: 8, "string" is a "reserved"
-    Line: 3, 1st char: 14, ";" is a "symbol"
-    Line: 4, 1st char: 1, "begin" is a "reserved"
-    Line: 5, 1st char: 3, "3i" is an "invalid id"
-    Line: 5, 1st char: 6, ":=" is a "symbol"
-    Line: 5, 1st char: 9, "'ab" is an "invalid string"
-    Line: 5, 1st char: 4, ";" is a "symbol"
-    Line: 6, 1st char: 1, "end" is a "reserved"
-    Line: 6, 1st char: 4, ";" is a "symbol"
+      Line: 1, 1st char: 1, "program" is a "reserved"
+      Line: 1, 1st char: 9, "test" is an "id"
+      Line: 1, 1st char: 13, ";" is a "symbol"
+      Line: 2, 1st char: 1, "var" is a "reserved"
+      Line: 3, 1st char: 3, "3i" is an "invalid id"
+      Line: 3, 1st char: 6, ":" is a "symbol"
+      Line: 3, 1st char: 8, "string" is a "reserved"
+      Line: 3, 1st char: 14, ";" is a "symbol"
+      Line: 4, 1st char: 1, "begin" is a "reserved"
+      Line: 5, 1st char: 3, "3i" is an "invalid id"
+      Line: 5, 1st char: 6, ":=" is a "symbol"
+      Line: 5, 1st char: 9, "'ab" is an "invalid string"
+      Line: 5, 1st char: 4, ";" is a "symbol"
+      Line: 6, 1st char: 1, "end" is a "reserved"
+      Line: 6, 1st char: 4, ";" is a "symbol"
 
-    The symbol table contains:
-    test
-    ------------------------
-    | test3.pas |
-    (* comment 1
-       comment 2 *)
-    program test;
-    var
-      i : integer;
-    begin
-      read(i);
-    end;
-    Line: 1, 1st char: 1, "(* comment 1\n   comment 2 *)" is a "comment".
-    Line: 3, 1st char: 1, "program" is a "reserved"
-    Line: 3, 1st char: 9, "test" is an "id"
-    Line: 3, 1st char: 13, ";" is a "symbol"
-    Line: 4, 1st char: 1, "var" is a "reserved"
-    Line: 5, 1st char: 3, "i" is an "id"
-    Line: 5, 1st char: 5, ":" is a "symbol"
-    Line: 5, 1st char: 7, "integer" is a "reserved"
-    Line: 5, 1st char: 14, ";" is a "symbol"
-    Line: 6, 1st char: 1, "begin" is a "reserved"
-    Line: 7, 1st char: 3, "read" is a "reserved"
-    Line: 7, 1st char: 7, "(" is a "symbol"
-    Line: 7, 1st char: 8, "i" is an "id"
-    Line: 7, 1st char: 9, ")" is a "symbol"
-    Line: 7, 1st char: 10, ";" is a "symbol"
-    Line: 8, 1st char: 1, "end" is a "reserved"
-    Line: 8, 1st char: 4, ";" is a "symbol"
+      The symbol table contains:
+      test
+      ------------------------
+      | test3.pas |
+      (* comment 1
+        comment 2 *)
+      program test;
+      var
+        i : integer;
+      begin
+        read(i);
+      end;
+      Line: 1, 1st char: 1, "(* comment 1\n   comment 2 *)" is a "comment".
+      Line: 3, 1st char: 1, "program" is a "reserved"
+      Line: 3, 1st char: 9, "test" is an "id"
+      Line: 3, 1st char: 13, ";" is a "symbol"
+      Line: 4, 1st char: 1, "var" is a "reserved"
+      Line: 5, 1st char: 3, "i" is an "id"
+      Line: 5, 1st char: 5, ":" is a "symbol"
+      Line: 5, 1st char: 7, "integer" is a "reserved"
+      Line: 5, 1st char: 14, ";" is a "symbol"
+      Line: 6, 1st char: 1, "begin" is a "reserved"
+      Line: 7, 1st char: 3, "read" is a "reserved"
+      Line: 7, 1st char: 7, "(" is a "symbol"
+      Line: 7, 1st char: 8, "i" is an "id"
+      Line: 7, 1st char: 9, ")" is a "symbol"
+      Line: 7, 1st char: 10, ";" is a "symbol"
+      Line: 8, 1st char: 1, "end" is a "reserved"
+      Line: 8, 1st char: 4, ";" is a "symbol"
 
-    The symbol table contains:
-    test
-    i
-    ------------------------
-    | test4.pas|
-    program test;
-    var
-      f : float;
-    begin
-      f := 12.25e+6;
-    end;
-    Line: 1, 1st char: 1, "program" is a "reserved"
-    Line: 1, 1st char: 9, "test" is an "id"
-    Line: 1, 1st char: 13, ";" is a "symbol"
-    Line: 2, 1st char: 1, "var" is a "reserved"
-    Line: 3, 1st char: 3, "f" is an "id"
-    Line: 3, 1st char: 5, ":" is a "symbol"
-    Line: 3, 1st char: 7, "float" is a "reserved"
-    Line: 3, 1st char: 12, ";" is a "symbol"
-    Line: 4, 1st char: 1, "begin" is a "reserved"
-    Line: 5, 1st char: 3, "f" is an "id"
-    Line: 5, 1st char: 5, ":=" is a "symbol"
-    Line: 5, 1st char: 8, "12.25e+6" is a "real"
-    Line: 5, 1st char: 16, ";" is a "symbol"
-    Line: 6, 1st char: 1, "end" is a "reserved"
-    Line: 6, 1st char: 4, ";" is a "symbol"
+      The symbol table contains:
+      test
+      i
+      ------------------------
+      | test4.pas|
+      program test;
+      var
+        f : float;
+      begin
+        f := 12.25e+6;
+      end;
+      Line: 1, 1st char: 1, "program" is a "reserved"
+      Line: 1, 1st char: 9, "test" is an "id"
+      Line: 1, 1st char: 13, ";" is a "symbol"
+      Line: 2, 1st char: 1, "var" is a "reserved"
+      Line: 3, 1st char: 3, "f" is an "id"
+      Line: 3, 1st char: 5, ":" is a "symbol"
+      Line: 3, 1st char: 7, "float" is a "reserved"
+      Line: 3, 1st char: 12, ";" is a "symbol"
+      Line: 4, 1st char: 1, "begin" is a "reserved"
+      Line: 5, 1st char: 3, "f" is an "id"
+      Line: 5, 1st char: 5, ":=" is a "symbol"
+      Line: 5, 1st char: 8, "12.25e+6" is a "real"
+      Line: 5, 1st char: 16, ";" is a "symbol"
+      Line: 6, 1st char: 1, "end" is a "reserved"
+      Line: 6, 1st char: 4, ";" is a "symbol"
 
-    The symbol table contains:
-    test
-    f
-    ------------------------
-    | test5.pas |
-    (* a**b) *)
-    program test;
-    var
-      i : integer;
-      _s, _s2, _s3, _s4, _s5 : string;
-    begin
-      i := -100;
-      _s := 'db lab';
-      _s2 := 'You''ll see';
-      _s3 := '';
-      _s4 := '''';
-      _s5 := ' ';
-    end;
-    Line: 1, 1st char: 1, "(* a**b) *)" is a "comment".
-    Line: 2, 1st char: 1, "program" is a "reserved"
-    Line: 2, 1st char: 9, "test" is an "id"
-    Line: 2, 1st char: 13, ";" is a "symbol"
-    Line: 3, 1st char: 1, "var" is a "reserved"
-    Line: 4, 1st char: 3, "i" is an "id"
-    Line: 4, 1st char: 5, ":" is a "symbol"
-    Line: 4, 1st char: 7, "integer" is a "reserved"
-    Line: 4, 1st char: 14, ";" is a "symbol"
-    Line: 5, 1st char: 3, "_s" is an "id"
-    Line: 5, 1st char: 5, "," is an "invalid character".
-    Line: 5, 1st char: 7, "_s2" is an "id"
-    Line: 5, 1st char: 10, "," is an "invalid character".
-    Line: 5, 1st char: 12, "_s3" is an "id"
-    Line: 5, 1st char: 15, "," is an "invalid character".
-    Line: 5, 1st char: 17, "_s4" is an "id"
-    Line: 5, 1st char: 20, "," is an "invalid character".
-    Line: 5, 1st char: 22, "_s5" is an "id"
-    Line: 5, 1st char: 26, ":" is a "symbol"
-    Line: 5, 1st char: 28, "string" is a "reserved"
-    Line: 5, 1st char: 34, ";" is a "symbol"
-    Line: 6, 1st char: 1, "begin" is a "reserved"
-    Line: 7, 1st char: 3, "i" is an "id"
-    Line: 7, 1st char: 5, ":=" is a "symbol"
-    Line: 7, 1st char: 8, "-100" is an "integer"
-    Line: 7, 1st char: 12, ";" is a "symbol"
-    Line: 8, 1st char: 3, "_s" is an "id"
-    Line: 8, 1st char: 6, ":=" is a "symbol"
-    Line: 8, 1st char: 9, "'db lab'" is a "string"
-    Line: 8, 1st char: 17, ";" is a "symbol"
-    Line: 9, 1st char: 3, "_s2" is an "id"
-    Line: 9, 1st char: 7, ":=" is a "symbol"
-    Line: 9, 1st char: 10, "'You''ll see'" is a "string"
-    Line: 9, 1st char: 23, ";" is a "symbol"
-    Line: 10, 1st char: 3, "_s3" is an "id"
-    Line: 10, 1st char: 7, ":=" is a "symbol"
-    Line: 10, 1st char: 10, "'" is an "invalid string"
-    Line: 10, 1st char: 10, "'" is an "invalid string"
-    Line: 10, 1st char: 2, ";" is a "symbol"
-    Line: 11, 1st char: 3, "_s4" is an "id"
-    Line: 11, 1st char: 7, ":=" is a "symbol"
-    Line: 11, 1st char: 10, "''''" is a "string"
-    Line: 11, 1st char: 14, ";" is a "symbol"
-    Line: 12, 1st char: 3, "_s5" is an "id"
-    Line: 12, 1st char: 7, ":=" is a "symbol"
-    Line: 12, 1st char: 10, "' '" is a "string"
-    Line: 12, 1st char: 13, ";" is a "symbol"
-    Line: 13, 1st char: 1, "end" is a "reserved"
-    Line: 13, 1st char: 4, ";" is a "symbol"
+      The symbol table contains:
+      test
+      f
+      ------------------------
+      | test5.pas |
+      (* a**b) *)
+      program test;
+      var
+        i : integer;
+        _s, _s2, _s3, _s4, _s5 : string;
+      begin
+        i := -100;
+        _s := 'db lab';
+        _s2 := 'You''ll see';
+        _s3 := '';
+        _s4 := '''';
+        _s5 := ' ';
+      end;
+      Line: 1, 1st char: 1, "(* a**b) *)" is a "comment".
+      Line: 2, 1st char: 1, "program" is a "reserved"
+      Line: 2, 1st char: 9, "test" is an "id"
+      Line: 2, 1st char: 13, ";" is a "symbol"
+      Line: 3, 1st char: 1, "var" is a "reserved"
+      Line: 4, 1st char: 3, "i" is an "id"
+      Line: 4, 1st char: 5, ":" is a "symbol"
+      Line: 4, 1st char: 7, "integer" is a "reserved"
+      Line: 4, 1st char: 14, ";" is a "symbol"
+      Line: 5, 1st char: 3, "_s" is an "id"
+      Line: 5, 1st char: 5, "," is an "invalid character".
+      Line: 5, 1st char: 7, "_s2" is an "id"
+      Line: 5, 1st char: 10, "," is an "invalid character".
+      Line: 5, 1st char: 12, "_s3" is an "id"
+      Line: 5, 1st char: 15, "," is an "invalid character".
+      Line: 5, 1st char: 17, "_s4" is an "id"
+      Line: 5, 1st char: 20, "," is an "invalid character".
+      Line: 5, 1st char: 22, "_s5" is an "id"
+      Line: 5, 1st char: 26, ":" is a "symbol"
+      Line: 5, 1st char: 28, "string" is a "reserved"
+      Line: 5, 1st char: 34, ";" is a "symbol"
+      Line: 6, 1st char: 1, "begin" is a "reserved"
+      Line: 7, 1st char: 3, "i" is an "id"
+      Line: 7, 1st char: 5, ":=" is a "symbol"
+      Line: 7, 1st char: 8, "-100" is an "integer"
+      Line: 7, 1st char: 12, ";" is a "symbol"
+      Line: 8, 1st char: 3, "_s" is an "id"
+      Line: 8, 1st char: 6, ":=" is a "symbol"
+      Line: 8, 1st char: 9, "'db lab'" is a "string"
+      Line: 8, 1st char: 17, ";" is a "symbol"
+      Line: 9, 1st char: 3, "_s2" is an "id"
+      Line: 9, 1st char: 7, ":=" is a "symbol"
+      Line: 9, 1st char: 10, "'You''ll see'" is a "string"
+      Line: 9, 1st char: 23, ";" is a "symbol"
+      Line: 10, 1st char: 3, "_s3" is an "id"
+      Line: 10, 1st char: 7, ":=" is a "symbol"
+      Line: 10, 1st char: 10, "'" is an "invalid string"
+      Line: 10, 1st char: 10, "'" is an "invalid string"
+      Line: 10, 1st char: 2, ";" is a "symbol"
+      Line: 11, 1st char: 3, "_s4" is an "id"
+      Line: 11, 1st char: 7, ":=" is a "symbol"
+      Line: 11, 1st char: 10, "''''" is a "string"
+      Line: 11, 1st char: 14, ";" is a "symbol"
+      Line: 12, 1st char: 3, "_s5" is an "id"
+      Line: 12, 1st char: 7, ":=" is a "symbol"
+      Line: 12, 1st char: 10, "' '" is a "string"
+      Line: 12, 1st char: 13, ";" is a "symbol"
+      Line: 13, 1st char: 1, "end" is a "reserved"
+      Line: 13, 1st char: 4, ";" is a "symbol"
 
-    The symbol table contains:
-    test
-    i
-    _s
-    _s2
-    _s3
-    _s4
-    _s5
-    ------------------------
-    | test6.pas |
-    ProGram test;
-    var
-      #db : float;
-      _f2 : float;
-    begin
-      #db := .1;
-      _f2 := 12.100;
-    end;
-    Line: 1, 1st char: 1, "ProGram" is a "reserved"
-    Line: 1, 1st char: 9, "test" is an "id"
-    Line: 1, 1st char: 13, ";" is a "symbol"
-    Line: 2, 1st char: 1, "var" is a "reserved"
-    Line: 3, 1st char: 3, "#db" is an "invalid id"
-    Line: 3, 1st char: 7, ":" is a "symbol"
-    Line: 3, 1st char: 9, "float" is a "reserved"
-    Line: 3, 1st char: 14, ";" is a "symbol"
-    Line: 4, 1st char: 3, "_f2" is an "id"
-    Line: 4, 1st char: 7, ":" is a "symbol"
-    Line: 4, 1st char: 9, "float" is a "reserved"
-    Line: 4, 1st char: 14, ";" is a "symbol"
-    Line: 5, 1st char: 1, "begin" is a "reserved"
-    Line: 6, 1st char: 3, "#db" is an "invalid id"
-    Line: 6, 1st char: 7, ":=" is a "symbol"
-    Line: 6, 1st char: 10, ".1" is an "invalid number"
-    Line: 6, 1st char: 12, ";" is a "symbol"
-    Line: 7, 1st char: 3, "_f2" is an "id"
-    Line: 7, 1st char: 7, ":=" is a "symbol"
-    Line: 7, 1st char: 10, "12.100" is a "real"
-    Line: 7, 1st char: 16, ";" is a "symbol"
-    Line: 8, 1st char: 1, "end" is a "reserved"
-    Line: 8, 1st char: 4, ";" is a "symbol"
+      The symbol table contains:
+      test
+      i
+      _s
+      _s2
+      _s3
+      _s4
+      _s5
+      ------------------------
+      | test6.pas |
+      ProGram test;
+      var
+        #db : float;
+        _f2 : float;
+      begin
+        #db := .1;
+        _f2 := 12.100;
+      end;
+      Line: 1, 1st char: 1, "ProGram" is a "reserved"
+      Line: 1, 1st char: 9, "test" is an "id"
+      Line: 1, 1st char: 13, ";" is a "symbol"
+      Line: 2, 1st char: 1, "var" is a "reserved"
+      Line: 3, 1st char: 3, "#db" is an "invalid id"
+      Line: 3, 1st char: 7, ":" is a "symbol"
+      Line: 3, 1st char: 9, "float" is a "reserved"
+      Line: 3, 1st char: 14, ";" is a "symbol"
+      Line: 4, 1st char: 3, "_f2" is an "id"
+      Line: 4, 1st char: 7, ":" is a "symbol"
+      Line: 4, 1st char: 9, "float" is a "reserved"
+      Line: 4, 1st char: 14, ";" is a "symbol"
+      Line: 5, 1st char: 1, "begin" is a "reserved"
+      Line: 6, 1st char: 3, "#db" is an "invalid id"
+      Line: 6, 1st char: 7, ":=" is a "symbol"
+      Line: 6, 1st char: 10, ".1" is an "invalid number"
+      Line: 6, 1st char: 12, ";" is a "symbol"
+      Line: 7, 1st char: 3, "_f2" is an "id"
+      Line: 7, 1st char: 7, ":=" is a "symbol"
+      Line: 7, 1st char: 10, "12.100" is a "real"
+      Line: 7, 1st char: 16, ";" is a "symbol"
+      Line: 8, 1st char: 1, "end" is a "reserved"
+      Line: 8, 1st char: 4, ";" is a "symbol"
 
-    The symbol table contains:
-    test
-    _f2
-    ------------------------
-    | test7.pas |
-    (* This line is a comment. *)
-    program test;
-    var
-      i : integer;
-    begin
-      i := 1+2;
-    end;
-    Line: 1, 1st char: 1, "(* This line is a comment. *)" is a "comment".
-    Line: 2, 1st char: 1, "program" is a "reserved"
-    Line: 2, 1st char: 9, "test" is an "id"
-    Line: 2, 1st char: 13, ";" is a "symbol"
-    Line: 3, 1st char: 1, "var" is a "reserved"
-    Line: 4, 1st char: 3, "i" is an "id"
-    Line: 4, 1st char: 5, ":" is a "symbol"
-    Line: 4, 1st char: 7, "integer" is a "reserved"
-    Line: 4, 1st char: 14, ";" is a "symbol"
-    Line: 5, 1st char: 1, "begin" is a "reserved"
-    Line: 6, 1st char: 3, "i" is an "id"
-    Line: 6, 1st char: 5, ":=" is a "symbol"
-    Line: 6, 1st char: 8, "1" is an "integer"
-    Line: 6, 1st char: 9, "+" is an "operator"
-    Line: 6, 1st char: 10, "2" is an "integer"
-    Line: 6, 1st char: 11, ";" is a "symbol"
-    Line: 7, 1st char: 1, "end" is a "reserved"
-    Line: 7, 1st char: 4, ";" is a "symbol"
+      The symbol table contains:
+      test
+      _f2
+      ------------------------
+      | test7.pas |
+      (* This line is a comment. *)
+      program test;
+      var
+        i : integer;
+      begin
+        i := 1+2;
+      end;
+      Line: 1, 1st char: 1, "(* This line is a comment. *)" is a "comment".
+      Line: 2, 1st char: 1, "program" is a "reserved"
+      Line: 2, 1st char: 9, "test" is an "id"
+      Line: 2, 1st char: 13, ";" is a "symbol"
+      Line: 3, 1st char: 1, "var" is a "reserved"
+      Line: 4, 1st char: 3, "i" is an "id"
+      Line: 4, 1st char: 5, ":" is a "symbol"
+      Line: 4, 1st char: 7, "integer" is a "reserved"
+      Line: 4, 1st char: 14, ";" is a "symbol"
+      Line: 5, 1st char: 1, "begin" is a "reserved"
+      Line: 6, 1st char: 3, "i" is an "id"
+      Line: 6, 1st char: 5, ":=" is a "symbol"
+      Line: 6, 1st char: 8, "1" is an "integer"
+      Line: 6, 1st char: 9, "+" is an "operator"
+      Line: 6, 1st char: 10, "2" is an "integer"
+      Line: 6, 1st char: 11, ";" is a "symbol"
+      Line: 7, 1st char: 1, "end" is a "reserved"
+      Line: 7, 1st char: 4, ";" is a "symbol"
 
-    The symbol table contains:
-    test
-    i
-    yen@yenubuntu:~/lex$ 
-    ```
+      The symbol table contains:
+      test
+      i
+      yen@yenubuntu:~/lex$ 
+      ```
