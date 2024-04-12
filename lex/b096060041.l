@@ -14,7 +14,6 @@ void symbol_table();
 
 %option case-insensitive
 
-
 reserved absolute|and|begin|break|case|const|continue|do|else|end|for|function|if|mod|nil|not|object|of|or|program|then|to|var|while|array|integer|double|write|writeln|string|float|read
 eol \n
 space [ \t\r]
@@ -29,7 +28,6 @@ real [+|-]?{digit}+(\.{digit}+)?(E[+|-]?{digit}+)?
 string \'([^'\n]|\'\')+\'
 notstring \'([^'\n]*|\'\')*
 comment \(\*([^\*]|\*+[^\)\*])*\*+\)
-
 
 %%
 
@@ -96,11 +94,9 @@ comment \(\*([^\*]|\*+[^\)\*])*\*+\)
 
 	printf("\"%s\" is a \"comment\".\n", result);
 }
-
-
-
 "//".* { printf("Line: %u, 1st char: %u, \"%s\" is a \'comment\'\n", lineCount, charCount, yytext); }
-. { charCount++; }
+. { printf("Line: %d, 1st char: %d, \"%s\" is an \"invalid character\".\n", lineCount, charCount, yytext); charCount++; }
+
 %%
 
 int main(){
@@ -111,7 +107,7 @@ int main(){
 
 void print_token(const unsigned use_an, const char *type, char *yytext){
     if (type == "id")
-        symbol_table_count(yytext);
+        symbol_table_count(yytext);'
     printf("Line: %u, 1st char: %u, \"%s\" is %s \"%s\"\n", lineCount, charCount, yytext, use_an ? "an" : "a", type);
     charCount += yyleng;
 }

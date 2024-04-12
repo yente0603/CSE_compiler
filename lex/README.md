@@ -1,5 +1,5 @@
 ---
-title: Compiler Spring 24' 
+title: lex scanner of pascal spring 24'
 author: 李彥德 政經113 B096060041
 date: 2024/04/07
 ---
