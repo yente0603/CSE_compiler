@@ -107,7 +107,7 @@ int main(){
 
 void print_token(const unsigned use_an, const char *type, char *yytext){
     if (type == "id")
-        symbol_table_count(yytext);'
+        symbol_table_count(yytext);
     printf("Line: %u, 1st char: %u, \"%s\" is %s \"%s\"\n", lineCount, charCount, yytext, use_an ? "an" : "a", type);
     charCount += yyleng;
 }
