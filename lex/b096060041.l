@@ -14,13 +14,14 @@ void symbol_table();
 
 %option case-insensitive
 
+
 reserved absolute|and|begin|break|case|const|continue|do|else|end|for|function|if|mod|nil|not|object|of|or|program|then|to|var|while|array|integer|double|write|writeln|string|float|read
-eol \n
+eol \r?\n
 space [ \t\r]
 id [a-zA-Z_][a-zA-Z_0-9]*
 notid [0-9~!@#$%\^&\-][a-zA-Z0-9_]+
 operator [\+\-\*\/]
-symbol [\.;:\(\)\[\]\{\}]|:=|>|<|=|==|<=|>=
+symbol [\.\,;:\(\)\[\]\{\}]|:=|>|<|=|==|<=|>=
 digit [0-9]
 integer [+|-]?{digit}+
 notreal \.{digit}+|{digit}+\.
@@ -28,6 +29,7 @@ real [+|-]?{digit}+(\.{digit}+)?(E[+|-]?{digit}+)?
 string \'([^'\n]|\'\')+\'
 notstring \'([^'\n]*|\'\')*
 comment \(\*([^\*]|\*+[^\)\*])*\*+\)
+
 
 %%
 
@@ -96,7 +98,6 @@ comment \(\*([^\*]|\*+[^\)\*])*\*+\)
 }
 "//".* { printf("Line: %u, 1st char: %u, \"%s\" is a \'comment\'\n", lineCount, charCount, yytext); }
 . { printf("Line: %d, 1st char: %d, \"%s\" is an \"invalid character\".\n", lineCount, charCount, yytext); charCount++; }
-
 %%
 
 int main(){
