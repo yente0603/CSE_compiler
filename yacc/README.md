@@ -148,31 +148,8 @@ date: 2024/05/21
             end;
         end.
         ```
-        ```
-        yen@yenubuntu:~/yacc$ ./b096060041.out < testfile_lab2_2022/yacc_testfile/testfile/correct.pas 
-        Line 1: program test;
-        Line 2: var 
-        Line 4:   i, j: integer;
-        Line 5:   ans: array[0 .. 81] of integer;
-        Line 6: begin
-        Line 7:     i := -1+3;
-        Line 8:     j := +7*8;
-        Line 9:     ans[0] := 7;
-        Line 14:     for i:=1 to 9 do 
-        Line 15:     begin
-        Line 16:         for j:=1 to i do
-        Line 17:             ans[i*9+j] := i*j;
-        Line 18:     end;
-        Line 19:     
-        Line 20:     for i:=1 to 9 do 
-        Line 21:     begin
-        Line 22:         for j:=1 to i do
-        Line 23:             if ( ans[i*9+j] mod 2 = 0) then
-        Line 24:                 write(i, '*', j, '=', ans[i*9+j], ' ');
-        Line 25:         writeln;
-        Line 26:     end;
-        Line 27: end.
-        ```
+        ![image](https://hackmd.io/_uploads/rywe58yNA.png)
+
     * error1.pas
         ```=
         program test;
@@ -185,19 +162,7 @@ date: 2024/05/21
             Write('ok');
         end.
         ```
-        ```
-        yen@yenubuntu:~/yacc$ ./b096060041.out < testfile_lab2_2022/yacc_testfile/testfile/error1.pas 
-        Line 1: program test;
-        Line 2: var
-        Line 3:   i : integer;
-        Line 4: begin
-        Line 5: at char 5, ":=" expected but "=" found.
-        Line 6: "j" is an undeclared variable
-        Line 6: at char 5, ":=" expected but "=" found.
-        Line 7: "j" is an undeclared variable
-        Line 8:     Write('ok');
-        Line 9: end.
-        ```
+        ![image](https://hackmd.io/_uploads/BJ-7cIkER.png)
     * error2.pas
         ```=
         program test;
@@ -212,19 +177,10 @@ date: 2024/05/21
         ```
         > actually, there does not have an error.
         > 
-        > ![alt text](image.png)
-        ```
-        yen@yenubuntu:~/yacc$ ./b096060041.out < testfile_lab2_2022/yacc_testfile/testfile/error2.pas 
-        Line 1: program test;
-        Line 2: var
-        Line 3:   i, j : integer;
-        Line 4: begin
-        Line 5:   i := 5*2;
-        Line 6:   j := 9;
-        Line 7:   if (i > j) then
-        Line 8:     Write('ok');
-        Line 9: end.
-        ```
+        > ![image](https://hackmd.io/_uploads/SkgOnunmA.png)
+        > 
+        ![image](https://hackmd.io/_uploads/Hk04cLy4R.png)
+
     * error3.pas
         ```=
         program test;
@@ -234,15 +190,7 @@ date: 2024/05/21
           i := 5;
         end
         ```
-        ```
-        yen@yenubuntu:~/yacc$ ./b096060041.out < testfile_lab2_2022/yacc_testfile/testfile/error3.pas 
-        Line 1: program test;
-        Line 2: var
-        Line 3: at char 8, ":" expected but ":=" found.
-        Line 4: begin
-        Line 5: "i" is an undeclared variable
-        Line 6: missing dot "." at the end.
-        ```
+        ![image](https://hackmd.io/_uploads/SJwUqL1V0.png)
     * error4.pas
         ```=
         program test;
@@ -255,19 +203,7 @@ date: 2024/05/21
           i = i+c;
         end.
         ```
-        ```
-        yen@yenubuntu:~/yacc$ ./b096060041.out < testfile_lab2_2022/yacc_testfile/testfile/error4.pas 
-        Line 1: program test;
-        Line 2: var
-        Line 3:   i, j : integer;
-        Line 4:   c : string;
-        Line 5: begin
-        Line 6:   i := 5;
-        Line 7:   c := 'aa';
-        Line 8: type mismatch: cannot add "i" (integer) to "c" (string)
-        Line 8: at char 5, ":=" expected but "=" found.
-        Line 9: end.
-        ```
+        ![image](https://hackmd.io/_uploads/H1qv9IkEA.png)
 
 
 _*note: this assignment only follow the rule of the course in NSYSU, Compiler Spring 24'. That is, the parser may not cover all the grammar of the PASCAL, which only could be a reference for learning coding the lex and the yacc. If you want to compile a real and applicable parser for PASCAL, please refer the documents throught the internet and the [website](https://www.freepascal.org/) of PASCAL or the [onlineGDB compiler of pascal](https://www.onlinegdb.com/online_pascal_compiler)._
